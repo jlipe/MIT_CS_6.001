@@ -1,0 +1,10 @@
+Pseudocode for problem 2a: Find best shift
+
+Set max number of words = zero
+Set best shift = 0
+Read in message
+For i in range from -26 to 26
+    Decoded sentence = apply shift(i)
+    Count number of spaces in decoded sentence
+    If number of spaces > max number of words set best shift to i
+

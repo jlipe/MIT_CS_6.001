@@ -1,0 +1,3 @@
+dob = raw_input("Whats your dob:")
+last = raw_input("Whats your last name:")
+print dob + last

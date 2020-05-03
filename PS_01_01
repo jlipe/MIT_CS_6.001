@@ -1,0 +1,25 @@
+out_bal = float(raw_input("Outstanding balance on card: "))
+apr = float(raw_input("APR: "))
+mon_rate = apr / 12
+
+
+paid_off = False
+
+lower_bound = out_bal / 12
+upper_bound = (out_bal * (1 + (apr / 12.0)) ** 12.0) / 12.0
+midpoint = round((upper_bound + lower_bound) / 2, 2)
+
+while paid_off == False:    
+    new_balance = out_bal
+    midpoint = round((upper_bound + lower_bound) / 2, 2)
+    for month in range(1, 13):
+        new_balance = new_balance * (1 + mon_rate) - midpoint
+
+    if upper_bound - 0.01 == lower_bound:
+        print midpoint
+        print new_balance
+        paid_off = True
+    elif new_balance > 0:
+        lower_bound = midpoint
+    else:
+        upper_bound = midpoint
